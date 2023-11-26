@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>		
+		<meta charset="UTF-8">
+		<title>Nueva Oferta</title>
+		
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<br><br><br><br><br><br>
+			<h2>Alta de Oferta</h2><br>
+			<form th:action="@{/empleador/perfil/ofertas/nuevo}" method="POST" th:object="${oferta}">
+			  
+			  <div class="mb-3 row">
+			    <label for="idVacantes" class="col-form-label">Vacantes</label>
+			    <input th:field="*{vacantes}" type="number" class="form-control" id="idVacantes" min="0">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('vacantes')}" th:errors="*{vacantes}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idPuesto" class="col-form-label">Puesto</label>
+			    <input th:field="*{puesto}" type="text" class="form-control" id="idPuesto">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('puesto')}" th:errors="*{puesto}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idDisponibilidad" class="col-form-label">Disponibilidad Horaria</label>
+				<input th:field="*{disponibilidad}" type="text" class="form-control" id="idDisponibilidad">
+				<div class="text-danger" th:if="${#fields.hasErrors('disponibilidad')}" th:errors="*{disponibilidad}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTareas" class="col-form-label">Tareas</label>
+			    <input th:field="*{tareas}" type="text" class="form-control" id="idTareas">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('tareas')}" th:errors="*{tareas}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idContacto" class="col-form-label">Contacto</label>
+			    <input th:field="*{contacto}" type="text" class="form-control" id="idContacto">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('contacto')}" th:errors="*{contacto}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idJornada" class="col-form-label">Jornada</label>
+			    <input th:field="*{jornada}" type="text" class="form-control" id="idJornada">		    
+			    <div class="text-danger" th:if="${#fields.hasErrors('jornada')}" th:errors="*{jornada}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idRequisitos" class="col-form-label">Requisitos</label>
+			    <input th:field="*{requisitos}" type="text" class="form-control" id="idRequisitos">		    
+			    <div class="text-danger" th:if="${#fields.hasErrors('requisitos')}" th:errors="*{requisitos}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idSalario" class="col-form-label">Salario</label>
+			    <input th:field="*{salario}" type="number" class="form-control" id="idSalario" min="0">	
+			    <div class="text-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>	    
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idBeneficios" class="col-form-label">Beneficios</label>
+			    <input th:field="*{beneficios}" type="text" class="form-control" id="idBeneficios">		    
+			    <div class="text-danger" th:if="${#fields.hasErrors('beneficios')}" th:errors="*{beneficios}"></div>
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{/}" class="btn btn-primary me-md-2" type="submit">Registrar</button>
+					<a th:href="@{/empleador/perfil/ofertas}" id="cancel" class="btn btn-secondary">Cancelar</a>	 				
+			  </div>
+			</form>
+		</div>
+		<br><br><br><br><br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

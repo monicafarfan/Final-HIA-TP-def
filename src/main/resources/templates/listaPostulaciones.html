@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>		
+		<meta charset="UTF-8">
+		<title>Lista de Postulantes</title>		
+	</head>
+	
+	<body>		
+		<div class="container">
+			<header th:replace="/layouts/header :: header"></header>
+			<nav th:replace="/layouts/navbarE::navbarE"></nav>
+			<br>
+			<p class="h4 mb-10">Postulantes</p>
+			<br>
+			<br>
+			<div class="col-12 d-flex justify-content-center">
+				<table class="table table-striped table-hover">
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Provincia</th>							
+							<th>Estado Civil</th>
+							<th>Telefono</th>
+							<th>Opciones</th>
+							
+						</tr>	
+						<tr th:each="ciudadano: ${ciudadanos}">
+							<td th:text="${ciudadano.getCv().getNombre()}"></td>
+							<td th:text="${ciudadano.getCv().getApellido()}"></td>
+							<td th:text="${ciudadano.getProvincia}"></td>
+							<td th:text="${ciudadano.getEstadoC()}"></td>
+							<td th:text="${ciudadano.getTelefono()}"></td>
+							<td>
+							<a th:href="@{#}" class="btn btn-primary">Aceptar</a>
+							<a th:href="@{#}" class="btn btn-primary">Rechazar</a>
+							</td>
+						</tr>
+					</table>
+				<br>
+				<br>				
+			</div>	
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		</div>		
+	</body>
+</html>

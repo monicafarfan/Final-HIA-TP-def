@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Trabajo Final</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+</head>
+<body>
+	<div class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<nav th:replace="/layouts/navbar::navbar"></nav>
+	  	<section id="index">
+			<h2 >Ofertas Disponibles</h2>
+			<br><br><br><br><br><br>
+			<p>Únete a la red red social  de semento laboral más grande y da a conocer tu Curriculum Vitae al mundo o busca empleados talensosos para el crecimiento de tu Empresa!</p>
+			<br><br><br>
+			<p>Inicia sesión para ver las ofertas disponibles <a th:href="@{/empleador/login}">Empleador</a> / <a th:href="@{/ciudadano/login}">Ciudadano</a></p>
+			<br><br><br><br><br><br>
+		</section>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</div>
+</body>
+</html>

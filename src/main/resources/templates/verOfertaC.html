@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>			
+		<meta charset="UTF-8">
+		<title>Ver Oferta</title>		
+	</head>
+	
+	<body>		
+		<div class="container">
+			<header th:replace="/layouts/header :: header"></header>
+			<nav th:replace="/layouts/navbarE :: navbarE"></nav>
+			<br>
+			<p class="h4 mb-10">Oferta</p>
+			<br><br><br>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			   <a th:href="@{/ciudadano/oferta/postular?codigo=}+${oferta.getCodigo()}" class="btn btn-primary">Postularme</a>
+			   <a th:href="@{/indexC}" class="btn btn-primary">Volver</a>
+			</div>
+			<br>
+			<div class="col-12 d-flex justify-content-center">
+				<div class="col-12 d-flex justify-content-center">
+					<table class="table table-striped table-hover">
+						<tr>
+							<th>Vacantes</th>
+							<td th:text="${oferta.getVacantes()}"></td>
+						</tr>
+						<tr>
+							<th>Puesto</th>
+							<td th:text="${oferta.getPuesto()}"></td>
+						</tr>
+						<tr>
+							<th>Provincia</th>
+							<td th:text="${oferta.getProvincia()}"></td>
+						</tr>
+						<tr>
+							<th>Disponibilidad Horaria</th>
+							<td th:text="${oferta.getDisponibilidad()}"></td>
+						</tr>
+						<tr>
+							<th>Tareas</th>
+							<td th:text="${oferta.getTareas()}"></td>
+						</tr>
+						<tr>
+							<th>Contacto</th>
+							<td th:text="${oferta.getContacto()}"></td>
+						</tr>
+						<tr>
+							<th>Jornada</th>
+							<td th:text="${oferta.getJornada()}"></td>
+						</tr>
+						<tr>
+							<th>Requisitos</th>
+							<td th:text="${oferta.getRequisitos()}"></td>
+						</tr>
+						<tr>
+							<th>Salario</th>
+							<td th:text="${oferta.getSalario()}"></td>
+						</tr>
+						<tr>
+							<th>Beneficios</th>
+							<td th:text="${oferta.getBeneficios()}"></td>
+						</tr>
+						<tr>
+							<th>Fecha de Publicación</th>
+							<td th:text="${oferta.getFecha()}"></td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<br>				
+			</div>	
+			<br><br><br><br>
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		</div>		
+	</body>
+</html>

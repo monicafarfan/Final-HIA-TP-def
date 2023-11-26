@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Editar Perfil</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<nav th:replace="/layouts/navbarE::navbarE"></nav>
+		<div class="container col-4">
+			<br><br><br>
+			<h2>Editar Perfil</h2>
+			<br>
+			<form th:action="@{/empleador/perfil/editar}" method="POST" th:object="${empleador}">
+			  
+			  <div class="mb-3 row">
+			    <label for="idRazon" class="col-form-label">Razón Social</label>
+			    <input th:field="*{razon}" type="text" class="form-control" id="idRazon">
+			    <div class="text-danger" th:if="${#fields.hasErrors('razon')}" th:errors="*{razon}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idNombre" class="col-form-label">Nombre del Empleador</label>
+			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idDomicilio" class="col-form-label">Domicilio</label>
+			    <input th:field="*{domicilio}" type="text" class="form-control" id="idDomicilio">
+			    <div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Teléfono</label>
+			    <input th:field="*{telefono}" type="text" class="form-control" id="idTelefono" pattern="^[0-9]+">
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idPagina" class="col-form-label">Página</label>
+			    <input th:field="*{pagina}" type="text" class="form-control" id="idPagina">
+			    <div class="text-danger" th:if="${#fields.hasErrors('pagina')}" th:errors="*{pagina}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idDescripcion" class="col-form-label">Descripción</label>
+			    <input th:field="*{descripcion}" type="text" class="form-control input-lg" id="idDescripcion">
+			    <div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{#}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/empleador/perfil}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

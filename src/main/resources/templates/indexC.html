@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Trabajo Final</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+</head>
+<body>
+	<div class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<nav th:replace="/layouts/navbarC::navbarC"></nav>
+	  	<section id="indexC">
+			<h2 >Ofertas Disponibles</h2>
+			<div class="row">
+				<div th:each="oferta:${ofertas}" class="col-md-4">
+					<div class="card" style="width: 18rem;">
+						<div class="card-body">
+						    <h5 th:text="${oferta.getPuesto()}" class="card-title"></h5>
+					        <p th:text="${oferta.getDisponibilidad()}" class="card-text"></p>
+						    <p th:text="${oferta.getSalario()}" class="card-text"></p>
+						    <a th:href="@{/ciudadano/oferta?codigo=}+${oferta.getCodigo()}" class="btn btn-primary">Ver Oferta</a>
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>
+		</section>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</div>
+</body>
+</html>

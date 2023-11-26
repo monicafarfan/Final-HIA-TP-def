@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>			
+		<meta charset="UTF-8">
+		<title>Currículum Vitae</title>		
+	</head>
+	
+	<body>		
+		<div class="container">
+			<header th:replace="/layouts/header :: header"></header>
+			<nav th:replace="/layouts/navbarC :: navbarC"></nav>
+			<br>
+			<div class="p-4 p-md-5 mb-4 text-white rounded bg-info">
+				<div class="col-md-6 px-0">
+			    	<h1 class="display-4 fst-italic">Mi Curriculum Vitae</h1>
+			    </div>
+			 </div>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			   <a th:href="@{/ciudadano/perfil/cv/editar}" class="btn btn-primary">Editar Cv</a>
+			   <a th:href="@{/ciudadano/perfil}" class="btn btn-primary">Volver</a>
+			</div>
+			<br>
+	        
+		    <div class="row g-5">
+		    <div class="col-md-4">
+		    	<div class="position-sticky p-4 mb-3 bg-light rounded" style="top: 2rem; width: 300px;	">
+		        		<h3 class="fst-italic">Sobre mí</h3>
+		        		<h5>Nombre</h5>
+		        		<p class="mb-0" th:text="${cv.getNombre()}"></p>
+		        		<p class="mb-0" th:text="${cv.getApellido()}"></p>
+		        		<h5>DNI</h5>
+		        		<p class="mb-0" th:text="${ciudadano.getDni()}"></p>
+		        		<h5>Provincia</h5>
+		        		<p class="mb-0" th:text="${ciudadano.getProvincia()}"></p>
+		        		<h5>Fecha de Nacimiento</h5>
+		        		<p class="mb-0" th:text="${ciudadano.getFechaNacimiento()}"></p>
+		        		<h5>Estado Civil</h5>
+		        		<p class="mb-0" th:text="${ciudadano.getEstadoC()}"></p>
+		        		<h5>Contacto</h5>
+		        		<p class="mb-0" th:text="${ciudadano.getEmail()}"></p>
+		        		<p class="mb-0" th:text="${ciudadano.getTelefono()}"></p>
+		        		<p class="mb-0" th:text="${cv.getContacto()}"></p>	        		
+		    	</div>
+		    </div>
+		    	<div class="col-md-8">
+			      	<article class="blog-post">
+			        	<h2 class="blog-post-title mb-1">EDUCACIÓN</h2>
+						<p th:text="${cv.getEducacion()}"></p>
+			 		    <h2>IDIOMAS</h2>
+			 		    <p th:text="${cv.getIdiomas()}"></p>
+			        	<h2>CONOCIMIENTOS INFORMÁTICOS</h2>
+			        	<p th:text="${cv.getConocimientosInf()}"></p>
+			        	<h2>EXPERIENCIA LABORAL</h2>
+			        	<p th:text="${cv.getExperienciaLab()}"></p>
+			        	<h2>INFORMACIÓN ADICIONAL</h2>
+			        	<p th:text="${cv.getInfoComplementaria()}"></p>
+			        	<h2>DATOS ADICIONALES</h2>
+			        	<p th:text="${cv.getDatosAdicionales()}"></p>
+			      	</article>
+		    	</div>	
+		    </div>  
+			<br><br><br><br>
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		</div>		
+	</body>
+</html>

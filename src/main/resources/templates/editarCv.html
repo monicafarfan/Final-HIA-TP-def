@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Editar Cv</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<nav th:replace="/layouts/navbarC :: navbarC"></nav>
+		<div class="container col-4">
+			<br><br><br>
+			<h2>Editar Cv</h2>
+			<br>
+			<form th:action="@{/ciudadano/perfil/cv/editar}" method="POST" th:object="${cv}">
+			
+			  <div class="mb-3 row">
+			    <label for="idNombre" class="col-form-label">Nombre</label>
+			    <input th:field="*{nombre}" type="text" class="form-control" id="idNombre">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idApellido" class="col-form-label">Apellido</label>
+			    <input th:field="*{apellido}" type="text" class="form-control" id="idApellido">
+			    <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idContacto" class="col-form-label">Contacto</label>
+			    <input th:field="*{contacto}" type="text" class="form-control" id="idContacto">
+			    <div class="text-danger" th:if="${#fields.hasErrors('contacto')}" th:errors="*{contacto}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idEducacion" class="col-form-label">Educación</label>
+			    <input th:field="*{educacion}" type="text" class="form-control" id="idEducacion">
+			    <div class="text-danger" th:if="${#fields.hasErrors('educacion')}" th:errors="*{educacion}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idIdiomas" class="col-form-label">Idiomas</label>
+			    <input th:field="*{idiomas}" type="text" class="form-control" id="idIdiomas">
+			    <div class="text-danger" th:if="${#fields.hasErrors('idiomas')}" th:errors="*{idiomas}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idConocimientosInf" class="col-form-label">Conocimientos Informáticos</label>
+			    <input th:field="*{conocimientosInf}" type="text" class="form-control" id="idConocimientosInf">
+			    <div class="text-danger" th:if="${#fields.hasErrors('conocimientosInf')}" th:errors="*{conocimientosInf}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idExperienciaLab" class="col-form-label">Experiencia Laboral</label>
+			    <input th:field="*{experienciaLab}" type="text" class="form-control" id="idExperienciaLab">
+			    <div class="text-danger" th:if="${#fields.hasErrors('experienciaLab')}" th:errors="*{experienciaLab}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idInfoComplementaria" class="col-form-label">Información Adicional</label>
+			    <input th:field="*{infoComplementaria}" type="text" class="form-control" id="idInfoComplementaria">
+			    <div class="text-danger" th:if="${#fields.hasErrors('infoComplementaria')}" th:errors="*{infoComplementaria}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idDatosAdicionales" class="col-form-label">Datos Adicionales</label>
+			    <input th:field="*{datosAdicionales}" type="text" class="form-control" id="idDatosAdicionales">
+			    <div class="text-danger" th:if="${#fields.hasErrors('datosAdicionales')}" th:errors="*{datosAdicionales}"></div>
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{#}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/ciudadano/perfil/cv}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			  
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

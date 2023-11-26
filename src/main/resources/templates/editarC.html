@@ -1,0 +1,78 @@
+!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Editar Perfil</title>
+	</head>
+	<body class="container">
+		<header th:replace="/layouts/header::header"></header>
+		<nav th:replace="/layouts/navbarC :: navbarC"></nav>
+		<div class="container col-4">
+			<br><br><br>
+			<h2>Editar Perfil</h2>
+			<br>
+			<form th:action="@{/ciudadano/perfil/editar}" method="POST" th:object="${ciudadano}">
+			
+			  <div class="mb-3 row">
+			    <label for="idTramite" class="col-form-label">Número de Trámite</label>
+			    <input th:field="*{nroT}" type="number" class="form-control" id="idTramite">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nroT')}" th:errors="*{nroT}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idEstado" class="col-form-label">Estado Civil</label>
+			    <select th:field="*{estadoC}" class="form-control" id="idEstado">
+					<option th:value="Soltero" selected>Soltero</option>
+					<option th:value="Casado">Casado</option>
+					<option th:value="Viudo">Viudo</option>
+				</select>
+			  </div>
+			  
+			  <div class="mb-3 row">
+				<label for="provinciaId" class="col-form-label">Provincia</label> 
+		        <select th:field="*{provincia}" class="form-select" id="provinciaId">
+		            <option value="Buenos Aires">Buenos Aires</option>
+					<option value="Buenos Aires Capital">Buenos Aires Capital</option>
+					<option value="Catamarca">Catamarca</option>
+					<option value="Chaco">Chaco</option>
+					<option value="Chubut">Chubut</option>
+					<option value="Cordoba">Cordoba</option>
+					<option value="Corrientes">Corrientes</option>
+					<option value="Entre Rios">Entre Rios</option>
+					<option value="Formosa">Formosa</option>
+					<option value="Jujuy">Jujuy</option>
+					<option value="La Pampa">La Pampa</option>
+					<option value="La Rioja">La Rioja</option>
+					<option value="Mendoza">Mendoza</option>
+					<option value="Misiones">Misiones</option>
+					<option value="Neuquen">Neuquen</option>
+					<option value="Rio Negro">Rio Negro</option>
+					<option value="Salta">Salta</option>
+					<option value="San Juan">San Juan</option>
+					<option value="San Luis">San Luis</option>
+					<option value="Santa Cruz">Santa Cruz</option>
+					<option value="Santa Fe">Santa Fe</option>
+					<option value="Santiago del Estero">Santiago del Estero</option>
+					<option value="Tierra del Fuego">Tierra del Fuego</option>
+					<option value="Tucuman">Tucuman</option>
+				</select>
+				<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Teléfono</label>
+			    <input th:field="*{telefono}" type="text" class="form-control" id="idTelefono" pattern="^[0-9]+">
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+			  </div>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button th:href="@{#}" class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					<a th:href="@{/ciudadano/perfil}" id="cancel" class="btn btn-secondary">Cancelar</a>	  				
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

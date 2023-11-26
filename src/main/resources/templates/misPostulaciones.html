@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>		
+		<meta charset="UTF-8">
+		<title>Mis Postulaciones</title>		
+	</head>
+	
+	<body>		
+		<div class="container">
+			<header th:replace="/layouts/header :: header"></header>
+			<nav th:replace="/layouts/navbarC::navbarC"></nav>
+			<br>
+			<p class="h4 mb-10">Mis Postulaciones</p>
+			<br>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			   <a th:href="@{/ciudadano/perfil}" id="nuevo" class="btn btn-primary">Volver</a>
+			</div>
+			<br>
+			<div class="col-12 d-flex justify-content-center">
+				<table class="table table-striped table-hover">
+						<tr>
+							<th>codigo</th>
+							<th>Puesto</th>
+							<th>Disponibilidad</th>							
+							<th>Salario</th>
+							<th>Estado</th>
+							<th>Opciones</th>
+							
+						</tr>	
+						<tr th:each="oferta: ${ofertas}">
+							<td th:text="${oferta.getCodigo()}"></td>
+							<td th:text="${oferta.getPuesto()}"></td>
+							<td th:text="${oferta.getDisponibilidad()}"></td>
+							<td th:text="${oferta.getSalario()}"></td>
+							<td th:text="${oferta.isDisponible()}"></td>
+							<td>
+							<a th:href="@{#}" class="btn btn-primary">Eliminar</a>
+							</td>
+						</tr>
+					</table>
+				<br>
+				<br>				
+			</div>	
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		</div>		
+	</body>
+</html>
